@@ -1,3 +1,3 @@
-#archfiery-repo
+# archfiery-repo
 
 ## personal archfiery-repo
