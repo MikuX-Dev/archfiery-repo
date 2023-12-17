@@ -9,13 +9,6 @@
 # get hidden bugs that are hard to discover.
 set -euo pipefail
 
-x86_pkgbuild=$(find ../archfiery-pkgbuild/x86_64 -type f -name "*.pkg.tar.zst*")
-
-for x in ${x86_pkgbuild}; do
-  mv "${x}" x86_64/
-  echo "Moving ${x}"
-done
-
 echo "###########################"
 echo "Building the repo database."
 echo "###########################"
@@ -32,9 +25,11 @@ echo "###################################"
 ## -s: signs the packages
 ## -n: only add new packages not already in database
 ## -R: remove old package files when updating their entry
-repo-add -s -n -R archfiery.db.tar.gz *.pkg.tar.zst
+repo-add -s -n -R archfiery.db.tar.gz ./*.tar.zst
+repo-add -s -n -R archfiery.db.tar.gz ./*.tar.xz
+repo-add -s -n -R archfiery.db.tar.gz ./*.tar.gz
 
-# Removing the symlinks because GitLab can't handle them.
+# Removing the symlinks.
 rm archfiery.db
 rm archfiery.db.sig
 rm archfiery.files

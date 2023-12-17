@@ -1,0 +1,29 @@
+# .github/workflows/repo-add.yml
+
+name: Repo add packages
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    container: 
+      image: archlinux:latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: |
+        pacman-key --init
+        pacman-key --populate
+        pacman -Syyu --noconfirm base-devel git curl openssh make archiso mkinitcpio-archiso docker docker-buildx
+
+    - name: repo-add
+      run: |
+        chmod 755 update-db.sh | ./update-db.sh
