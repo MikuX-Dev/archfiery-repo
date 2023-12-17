@@ -2,8 +2,7 @@
 #
 # Script name: pushit.sh
 # Description: Script for pushing changes to dtos-core-repo to GitLab.
-# GitLab: https://www.gitlab.com/dwt1/dtos-core-repo
-# Contributors: Derek Taylor
+# Contributors: MikuX-Dev
 
 # Set with the flags "-e", "-u","-o pipefail" cause the script to fail
 # if certain things happen, which is a good thing.  Otherwise, we can

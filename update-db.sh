@@ -2,7 +2,6 @@
 
 # Script name: update-db.sh
 # Description: Script for rebuilding the database for archfiery.
-# Github: https://github.com/MikuX-Dev/local-arch-repo
 # Contributors: MikuX-Dev
 
 # Set with the flags "-e", "-u","-o pipefail" cause the script to fail
