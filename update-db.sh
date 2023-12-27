@@ -15,7 +15,7 @@ echo "###########################"
 
 ## Arch: x86_64
 cd x86_64
-rm -f archfiery*
+rm -f *.db* *.files*
 
 echo "###################################"
 echo "Building for architecture 'x86_64'."
