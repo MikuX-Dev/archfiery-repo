@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC2035
 
 # Script name: update-db.sh
 # Description: Script for rebuilding the database for archfiery.
@@ -14,7 +15,7 @@ echo "Building the repo database."
 echo "###########################"
 
 ## Arch: x86_64
-rm -rf *.db* *.files*
+rm archfiery_repo*
 
 echo "###################################"
 echo "Building for architecture 'x86_64'."
@@ -24,19 +25,25 @@ echo "###################################"
 ## -s: signs the packages
 ## -n: only add new packages not already in database
 ## -R: remove old package files when updating their entry
-repo-add -n archfiery.db.tar.gz ./*.tar.*
+repo-add -n archfiery_repo.db.tar.gz *.tar.*
 
 # Removing the symlinks.
-# rm archfiery.db
-# rm archfiery.db.sig
-# rm archfiery.files
-# rm archfiery.files.sig
+echo "###################################"
+echo "       Removing the symlinks.      "
+echo "###################################"
+rm archfiery_repo.db
+rm archfiery_repo.db.sig
+rm archfiery_repo.files
+rm archfiery_repo.files.sig
 
 # Renaming the tar.gz files without the extension.
-# mv archfiery.db.tar.gz archfiery.db
-# mv archfiery.db.tar.gz.sig archfiery-db.sig
-# mv archfiery.files.tar.gz archfiery.files
-# mv archfiery.files.tar.gz.sig archfiery.files.sig
+echo "################################################"
+echo "Renaming the tar.gz files without the extension."
+echo "################################################"
+mv archfiery_repo.db.tar.gz archfiery_repo.db
+mv archfiery_repo.db.tar.gz.sig archfiery_repo.db.sig
+mv archfiery_repo.files.tar.gz archfiery_repo.files
+mv archfiery_repo.files.tar.gz.sig archfiery_repo.files.sig
 
 echo "#######################################"
 echo "Packages in the repo have been updated!"
