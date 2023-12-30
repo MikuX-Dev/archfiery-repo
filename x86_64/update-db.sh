@@ -15,7 +15,11 @@ echo "Building the repo database."
 echo "###########################"
 
 ## Arch: x86_64
-rm archfiery_repo*
+if [ -f "archfiery_repo*" ]; then
+  rm archfiery_repo*
+fi
+
+# rm archfiery_repo*
 
 echo "###################################"
 echo "Building for architecture 'x86_64'."
@@ -25,12 +29,13 @@ echo "###################################"
 ## -s: signs the packages
 ## -n: only add new packages not already in database
 ## -R: remove old package files when updating their entry
-repo-add -n archfiery_repo.db.tar.gz *.tar.*
+repo-add -s -n -R archfiery_repo.db.tar.gz *.tar.*
 
 # Removing the symlinks.
 echo "###################################"
 echo "       Removing the symlinks.      "
 echo "###################################"
+
 rm archfiery_repo.db
 rm archfiery_repo.db.sig
 rm archfiery_repo.files
@@ -40,6 +45,7 @@ rm archfiery_repo.files.sig
 echo "################################################"
 echo "Renaming the tar.gz files without the extension."
 echo "################################################"
+
 mv archfiery_repo.db.tar.gz archfiery_repo.db
 mv archfiery_repo.db.tar.gz.sig archfiery_repo.db.sig
 mv archfiery_repo.files.tar.gz archfiery_repo.files
