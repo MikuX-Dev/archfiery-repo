@@ -21,7 +21,7 @@ jobs:
       run: |
         pacman-key --init
         pacman-key --populate
-        pacman -Syyu --noconfirm base-devel git curl openssh make archiso mkinitcpio-archiso docker docker-buildx
+        pacman -Syyu --noconfirm base-devel git devtools archiso mkinitcpio-archiso docker docker-buildx
 
     - name: repo-add
       run: |

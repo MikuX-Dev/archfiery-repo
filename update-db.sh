@@ -28,16 +28,16 @@ echo "###################################"
 repo-add -s -n -R archfiery.db.tar.gz ./*.tar.*
 
 # Removing the symlinks.
-rm archfiery.db
-rm archfiery.db.sig
-rm archfiery.files
-rm archfiery.files.sig
+# rm archfiery.db
+# rm archfiery.db.sig
+# rm archfiery.files
+# rm archfiery.files.sig
 
 # Renaming the tar.gz files without the extension.
-mv archfiery.db.tar.gz archfiery.db
-mv archfiery.db.tar.gz.sig archfiery-db.sig
-mv archfiery.files.tar.gz archfiery.files
-mv archfiery.files.tar.gz.sig archfiery.files.sig
+# mv archfiery.db.tar.gz archfiery.db
+# mv archfiery.db.tar.gz.sig archfiery-db.sig
+# mv archfiery.files.tar.gz archfiery.files
+# mv archfiery.files.tar.gz.sig archfiery.files.sig
 
 echo "#######################################"
 echo "Packages in the repo have been updated!"
