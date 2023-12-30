@@ -14,7 +14,7 @@ echo "Building the repo database."
 echo "###########################"
 
 ## Arch: x86_64
-rm -f *.db* *.files*
+rm -rf *.db* *.files*
 
 echo "###################################"
 echo "Building for architecture 'x86_64'."
