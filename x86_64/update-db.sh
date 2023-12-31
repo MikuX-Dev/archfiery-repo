@@ -10,6 +10,8 @@
 # get hidden bugs that are hard to discover.
 set -euo pipefail
 
+cd x86_64/
+
 echo "###########################"
 echo "Building the repo database."
 echo "###########################"
@@ -76,6 +78,7 @@ echo "######################"
 echo "Adding packages to git"
 echo "######################"
 
+cd ..
 git config --local user.email "actions@github.com"
 git config --local user.name "GitHub Actions"
 git add .
