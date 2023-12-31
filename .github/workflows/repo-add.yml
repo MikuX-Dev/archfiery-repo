@@ -1,8 +1,8 @@
 name: Repo add packages
 
 on:
-  push:
-    branches: [ main ]
+  # push:
+    # branches: [ main ]
   pull_request:
     branches: [ main ]
 
@@ -23,6 +23,5 @@ jobs:
 
     - name: repo-add
       run: |
-        cd x86_64/
-        chmod +x ./update-db.sh
-        ./update-db.sh
+        chmod +x ./x86_64/update-db.sh
+        ./x86_64/update-db.sh
