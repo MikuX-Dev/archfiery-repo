@@ -10,7 +10,7 @@
 # get hidden bugs that are hard to discover.
 set -euo pipefail
 
-cd x86_64/
+# cd x86_64/
 
 echo "###########################"
 echo "Building the repo database."
