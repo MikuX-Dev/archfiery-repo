@@ -29,7 +29,7 @@ echo "###################################"
 ## -s: signs the packages
 ## -n: only add new packages not already in database
 ## -R: remove old package files when updating their entry
-repo-add -s -n -R archfiery_repo.db.tar.gz *.pkg.tar.*
+repo-add -n -R archfiery_repo.db.tar.gz *.pkg.tar.*
 
 # Removing the symlinks.
 echo "###################################"
@@ -71,6 +71,16 @@ for file in "${files[@]}"; do
     mv "$old_name" "$new_name"
   fi
 done
+
+echo "######################"
+echo "Adding packages to git"
+echo "######################"
+
+git config --local user.email "actions@github.com"
+git config --local user.name "GitHub Actions"
+git add .
+git commit -m "Add built packages"
+git push
 
 echo "#######################################"
 echo "Packages in the repo have been updated!"
