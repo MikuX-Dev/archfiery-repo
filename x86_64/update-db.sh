@@ -55,10 +55,22 @@ echo "################################################"
 echo "Renaming the tar.gz files without the extension."
 echo "################################################"
 
-mv archfiery_repo.db.tar.gz archfiery_repo.db
-mv archfiery_repo.db.tar.gz.sig archfiery_repo.db.sig
-mv archfiery_repo.files.tar.gz archfiery_repo.files
-mv archfiery_repo.files.tar.gz.sig archfiery_repo.files.sig
+files=(
+  "archfiery_repo.db.tar.gz:archfiery_repo.db"
+  "archfiery_repo.db.tar.gz.sig:archfiery_repo.db.sig"
+  "archfiery_repo.files.tar.gz:archfiery_repo.files"
+  "archfiery_repo.files.tar.gz.sig:archfiery_repo.files.sig"
+)
+
+for file in "${files[@]}"; do
+  old_name=$(echo "$file" | cut -d: -f1)
+  new_name=$(echo "$file" | cut -d: -f2)
+
+  if [ -f "$old_name" ]; then
+    echo "Renaming $old_name to $new_name"
+    mv "$old_name" "$new_name"
+  fi
+done
 
 echo "#######################################"
 echo "Packages in the repo have been updated!"
