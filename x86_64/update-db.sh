@@ -74,17 +74,6 @@ for file in "${files[@]}"; do
   fi
 done
 
-echo "######################"
-echo "Adding packages to git"
-echo "######################"
-
-cd ..
-git config --local user.email "actions@github.com"
-git config --local user.name "GitHub Actions"
-git add .
-git commit -m "Add built packages"
-git push
-
 echo "#######################################"
 echo "Packages in the repo have been updated!"
 echo "#######################################"
