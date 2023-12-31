@@ -36,10 +36,19 @@ echo "###################################"
 echo "       Removing the symlinks.      "
 echo "###################################"
 
-rm archfiery_repo.db
-rm archfiery_repo.db.sig
-rm archfiery_repo.files
-rm archfiery_repo.files.sig
+files=(
+  "archfiery_repo.db"
+  "archfiery_repo.db.sig"
+  "archfiery_repo.files"
+  "archfiery_repo.files.sig"
+)
+
+for file in "${files[@]}"; do
+  if [ -f "$file" ]; then
+    echo "Removing $file"
+    rm "$file"
+  fi
+done
 
 # Renaming the tar.gz files without the extension.
 echo "################################################"
