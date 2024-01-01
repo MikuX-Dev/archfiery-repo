@@ -31,7 +31,7 @@ echo "###################################"
 ## -s: signs the packages
 ## -n: only add new packages not already in database
 ## -R: remove old package files when updating their entry
-repo-add -n -R archfiery_repo.db.tar.gz *.pkg.tar.*
+repo-add archfiery_repo.db.tar.gz *.pkg.tar.*
 
 # Removing the symlinks.
 echo "###################################"
