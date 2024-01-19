@@ -12,16 +12,16 @@ set -euo pipefail
 
 # cd x86_64/
 
-# echo "###########################"
-# echo "Building the repo database."
-# echo "###########################"
+echo "###########################"
+echo "Building the repo database."
+echo "###########################"
 
-# ## Arch: x86_64
-# if [ -f "archfiery_repo*" ]; then
-#   rm archfiery_repo*
-# fi
+## Arch: x86_64
+if [ -f "archfiery_repo*" ]; then
+  rm archfiery_repo*
+fi
 
-# rm archfiery_repo*
+rm archfiery_repo*
 
 echo "###################################"
 echo "Building for architecture 'x86_64'."
